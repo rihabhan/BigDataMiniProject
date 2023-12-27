@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Occupancy Prediction</title>
+</head>
+<body>
+    <h1>Occupancy Prediction</h1>
+    <form method="POST" action="/">
+        <label for="temperature">Temperature:</label>
+        <input type="text" id="temperature" name="temperature" required><br><br>
+        
+        <label for="humidity">Humidity:</label>
+        <input type="text" id="humidity" name="humidity" required><br><br>
+        
+        <label for="light">Light:</label>
+        <input type="text" id="light" name="light" required><br><br>
+        
+        <label for="co2">CO2:</label>
+        <input type="text" id="co2" name="co2" required><br><br>
+        
+        <label for="humidity_ratio">Humidity Ratio:</label>
+        <input type="text" id="humidity_ratio" name="humidity_ratio" required><br><br>
+        
+        <input type="submit" value="Predict">
+    </form>
+    
+    {% if result is defined %}
+        <h2>Prediction Result:</h2>
+        <p>{{ result }}</p>
+    {% endif %}
+</body>
+</html>
