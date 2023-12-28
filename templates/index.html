@@ -87,6 +87,10 @@
         
         <input type="submit" value="Predict">
     </form>
+    <form method="POST" action="/" enctype="multipart/form-data">
+        <input type="file" name="file">
+        <input type="submit" value="Predict">
+    </form>
     
     {% if result is defined %}
         <h2>Prediction Result:</h2>
