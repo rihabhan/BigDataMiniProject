@@ -8,7 +8,7 @@ from elasticsearch import Elasticsearch
 app = Flask(__name__)
 
 spark = SparkSession.builder.appName("Random Forest").getOrCreate()
-loaded_model = RandomForestClassificationModel.load('/home/rihab/Desktop/BigDataProject/model')
+loaded_model = RandomForestClassificationModel.load('hdfs://localhost:9000/user/')
 es = Elasticsearch([{'host': 'localhost', 'port': 9200, 'scheme': 'http'}])
 def is_float(value):
     try:

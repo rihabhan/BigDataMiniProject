@@ -11,7 +11,7 @@ spark = SparkSession.builder.appName("Random Forest").master("local[*]").getOrCr
 #When header='True', Spark will consider the first row of the CSV file as column names and not as data.
 #When inferSchema='True', Spark will attempt to automatically infer the data types for each column in the DataFrame based on the contents of the CSV file.
 
-df = spark.read.options(header='True', inferSchema='True', delimiter=',').csv("/home/rihab/Downloads/Occupancy.csv")
+df = spark.read.options(header='True', inferSchema='True', delimiter=',').csv("hdfs://localhost:9000/user/Occupancy.csv")
 
 #Exclude columns 'date' and 'Occupancy' from the list of all columns in the DataFrame into the new list feature_cols.
 
@@ -48,6 +48,6 @@ evaluator = MulticlassClassificationEvaluator(labelCol="Occupancy", metricName="
 accuracy = evaluator.evaluate(predictions)
 print(f'Accuracy: {accuracy}')
 #save the model 
-model.write().overwrite().save('/home/rihab/Desktop/BigDataProject/model')
+model.write().overwrite().save('hdfs://localhost:9000/user/')
 # Stop the Spark session
 spark.stop()
